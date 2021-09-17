@@ -11,6 +11,16 @@ fs.readFile(
         if (err) {
             throw new Error(err);
         } else {
+            class Person {
+                constructor(name, surname, fullname, birthday, gender) {
+                  this.name = name;
+                  this.surname = surname;
+                  this.fullname = fullname;
+                  this.birthday = birthday;
+                  this.gender = gender;
+
+                }
+              }
             const reg1 = /\n+/g;
             const reg2 = /\r+/g;
             let arr = data.replace(reg1, '').replace(reg2, '').split(";;;;")
@@ -18,13 +28,7 @@ fs.readFile(
 
             for (i = 1; i < arr.length; i++) {
                 let map = arr[i].split(';')
-                let person = {
-                    name: map[0],
-                    surname: map[1],
-                    fullname: map[0] + map[1],
-                    birthday: map[3],
-                    gender: map[2]
-                }
+                let person = new Person(map[0], map[1], map[0] + " " + map[1], map[3], map[2])
                 coolArr.push(person)
             }
             coolArrDateSorted = coolArr.sort(function(a,b){
