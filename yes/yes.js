@@ -28,7 +28,7 @@ fs.readFile(
 
             for (i = 1; i < arr.length; i++) {
                 let map = arr[i].split(';')
-                let person = new Person(map[0], map[1], map[0] + " " + map[1], map[3], map[2])
+                let person = new Person(map[0], map[1], map[0].split('')[0] + ". " + map[1], map[3], map[2])
                 coolArr.push(person)
             }
             coolArrDateSorted = coolArr.sort(function(a,b){
