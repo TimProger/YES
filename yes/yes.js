@@ -33,10 +33,7 @@ fs.readFile(
         return new Date(a.birthday) - new Date(b.birthday);
       });
       sorted.forEach((el) => {
-        coolDateSorted += `${el.fullname} - ${el.birthday.replace(
-          /-/g,
-          "."
-        )}\n`;
+        coolDateSorted += `${el.fullname} - ${el.birthday.replace(/-/g,".")}\n`;
       });
       console.log(coolDateSorted);
     }
